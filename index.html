@@ -4,230 +4,243 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ghxst Music Producer 2024 - Professional AI Music Production</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Professional AI music production app with Square subscription billing and desktop download">
 </head>
 <body>
-    <div class="app-container">
+    <div id="app">
         <!-- Header -->
         <header class="header">
-            <div class="header-left">
+            <div class="container">
                 <div class="logo">
-                    <i class="fas fa-music"></i>
-                    <span class="logo-text">Ghxst Music Producer 2024</span>
+                    <h1>GHXST</h1>
+                    <span>Music Producer 2024</span>
                 </div>
-                <div class="project-info">
-                    <span class="project-name">Untitled Project</span>
-                    <span class="bpm">120 BPM</span>
+                <nav class="nav">
+                    <a href="#features">Features</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#download">Download</a>
+                </nav>
+                <div class="auth-buttons">
+                    <button class="btn btn-outline" id="loginBtn">Login</button>
+                    <button class="btn btn-primary" id="signupBtn">Start Free Trial</button>
                 </div>
-            </div>
-            <div class="header-center">
-                <div class="transport-controls">
-                    <button id="play-btn" class="transport-btn"><i class="fas fa-play"></i></button>
-                    <button id="pause-btn" class="transport-btn"><i class="fas fa-pause"></i></button>
-                    <button id="stop-btn" class="transport-btn"><i class="fas fa-stop"></i></button>
-                    <button id="record-btn" class="transport-btn record"><i class="fas fa-circle"></i></button>
-                </div>
-                <div class="time-display">
-                    <span id="current-time">00:00:00</span>
-                </div>
-            </div>
-            <div class="header-right">
-                <button class="subscription-btn" id="subscription-btn">
-                    <i class="fas fa-crown"></i> Upgrade Pro
-                </button>
-                <button class="download-btn" id="download-btn">
-                    <i class="fas fa-download"></i> Desktop App
-                </button>
             </div>
         </header>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- Sidebar -->
-            <aside class="sidebar">
-                <div class="sidebar-section">
-                    <h3>AI Instruments</h3>
-                    <div class="instrument-list">
-                        <div class="instrument-item" data-instrument="piano">
-                            <i class="fas fa-piano"></i>
-                            <span>AI Piano</span>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Professional AI Music Production</h1>
+                    <p>Create, mix, and master professional-quality music with AI-powered tools. From beats to vocals, produce your next hit with Ghxst.</p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary btn-large" id="startProducingBtn">Start Producing</button>
+                        <button class="btn btn-outline btn-large" id="downloadDesktopBtn">Download Desktop App</button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">50K+</span>
+                            <span class="stat-label">Tracks Created</span>
                         </div>
-                        <div class="instrument-item" data-instrument="drums">
-                            <i class="fas fa-drum"></i>
-                            <span>AI Drums</span>
+                        <div class="stat">
+                            <span class="stat-number">10K+</span>
+                            <span class="stat-label">Active Producers</span>
                         </div>
-                        <div class="instrument-item" data-instrument="synth">
-                            <i class="fas fa-wave-square"></i>
-                            <span>AI Synth</span>
-                        </div>
-                        <div class="instrument-item" data-instrument="guitar">
-                            <i class="fas fa-guitar"></i>
-                            <span>AI Guitar</span>
-                        </div>
-                        <div class="instrument-item" data-instrument="bass">
-                            <i class="fas fa-music"></i>
-                            <span>AI Bass</span>
+                        <div class="stat">
+                            <span class="stat-number">99.9%</span>
+                            <span class="stat-label">Uptime</span>
                         </div>
                     </div>
                 </div>
-                
-                <div class="sidebar-section">
-                    <h3>AI Effects</h3>
-                    <div class="effects-list">
-                        <div class="effect-item">
-                            <i class="fas fa-sliders-h"></i>
-                            <span>AI Reverb</span>
-                        </div>
-                        <div class="effect-item">
-                            <i class="fas fa-adjust"></i>
-                            <span>AI Compressor</span>
-                        </div>
-                        <div class="effect-item">
-                            <i class="fas fa-equalizer"></i>
-                            <span>AI EQ</span>
-                        </div>
-                    </div>
-                </div>
-            </aside>
-
-            <!-- Workspace -->
-            <div class="workspace">
-                <!-- Track Area -->
-                <div class="track-area">
-                    <div class="track-header">
-                        <h2>Tracks</h2>
-                        <button class="add-track-btn" id="add-track-btn">
-                            <i class="fas fa-plus"></i> Add Track
-                        </button>
-                    </div>
-                    
-                    <div class="tracks-container" id="tracks-container">
-                        <!-- Tracks will be added dynamically -->
-                        <div class="track" data-track="1">
-                            <div class="track-controls">
-                                <div class="track-name">Track 1</div>
-                                <div class="track-buttons">
-                                    <button class="track-btn mute"><i class="fas fa-volume-mute"></i></button>
-                                    <button class="track-btn solo"><i class="fas fa-headphones"></i></button>
-                                    <button class="track-btn record"><i class="fas fa-circle"></i></button>
-                                </div>
-                                <div class="track-level">
-                                    <input type="range" class="level-slider" min="0" max="100" value="75">
-                                </div>
+                <div class="hero-visual">
+                    <div class="daw-mockup">
+                        <div class="daw-header">
+                            <div class="daw-controls">
+                                <div class="control-btn play" id="playBtn">▶</div>
+                                <div class="control-btn stop">■</div>
+                                <div class="control-btn record">●</div>
                             </div>
-                            <div class="track-timeline">
-                                <div class="track-content">Drop audio files or generate with AI</div>
+                        </div>
+                        <div class="daw-tracks">
+                            <div class="track">
+                                <span class="track-name">AI Drums</span>
+                                <div class="waveform"></div>
+                            </div>
+                            <div class="track">
+                                <span class="track-name">Bass Line</span>
+                                <div class="waveform"></div>
+                            </div>
+                            <div class="track">
+                                <span class="track-name">AI Vocals</span>
+                                <div class="waveform"></div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- AI Generation Panel -->
-                <div class="ai-panel">
-                    <h3>AI Music Generation</h3>
-                    <div class="ai-controls">
-                        <div class="ai-input-group">
-                            <label>Style:</label>
-                            <select id="music-style">
-                                <option value="electronic">Electronic</option>
-                                <option value="hiphop">Hip Hop</option>
-                                <option value="rock">Rock</option>
-                                <option value="jazz">Jazz</option>
-                                <option value="classical">Classical</option>
-                                <option value="ambient">Ambient</option>
-                            </select>
-                        </div>
-                        <div class="ai-input-group">
-                            <label>Mood:</label>
-                            <select id="music-mood">
-                                <option value="energetic">Energetic</option>
-                                <option value="chill">Chill</option>
-                                <option value="dramatic">Dramatic</option>
-                                <option value="happy">Happy</option>
-                                <option value="melancholic">Melancholic</option>
-                            </select>
-                        </div>
-                        <div class="ai-input-group">
-                            <label>Length:</label>
-                            <select id="music-length">
-                                <option value="30">30 seconds</option>
-                                <option value="60">1 minute</option>
-                                <option value="120">2 minutes</option>
-                                <option value="240">4 minutes</option>
-                            </select>
-                        </div>
-                        <button class="generate-btn" id="generate-btn">
-                            <i class="fas fa-magic"></i> Generate AI Music
-                        </button>
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <h2>Powerful AI Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎵</div>
+                        <h3>AI Beat Generation</h3>
+                        <p>Generate professional drum patterns and beats instantly with our advanced AI engine.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎤</div>
+                        <h3>AI Vocals & Harmonies</h3>
+                        <p>Create realistic vocals and harmonies in multiple styles and languages.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎛️</div>
+                        <h3>Auto Mixing & Mastering</h3>
+                        <p>Professional mixing and mastering powered by AI, trained on Grammy-winning tracks.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎹</div>
+                        <h3>Smart Instruments</h3>
+                        <p>AI-powered virtual instruments that adapt to your musical style and preferences.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔄</div>
+                        <h3>Real-time Collaboration</h3>
+                        <p>Collaborate with other producers in real-time, anywhere in the world.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💾</div>
+                        <h3>Cloud & Desktop</h3>
+                        <p>Seamlessly work between web and desktop versions with automatic cloud sync.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- Subscription Modal -->
-    <div id="subscription-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Upgrade to Ghxst Pro</h2>
-            <div class="pricing-plans">
-                <div class="plan">
-                    <h3>Monthly Pro</h3>
-                    <div class="price">$29.99/month</div>
-                    <ul>
-                        <li>Unlimited AI generations</li>
-                        <li>Premium instrument library</li>
-                        <li>Advanced AI effects</li>
-                        <li>Export high-quality audio</li>
-                        <li>Cloud storage</li>
-                    </ul>
-                    <button class="subscribe-btn" data-plan="monthly">Subscribe Now</button>
-                </div>
-                <div class="plan featured">
-                    <h3>Annual Pro</h3>
-                    <div class="price">$299.99/year</div>
-                    <div class="savings">Save 17%</div>
-                    <ul>
-                        <li>Everything in Monthly</li>
-                        <li>Exclusive AI models</li>
-                        <li>Priority support</li>
-                        <li>Desktop app included</li>
-                        <li>Commercial license</li>
-                    </ul>
-                    <button class="subscribe-btn" data-plan="annual">Subscribe Now</button>
+        <!-- Pricing Section -->
+        <section id="pricing" class="pricing">
+            <div class="container">
+                <h2>Choose Your Plan</h2>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Free</h3>
+                        <div class="price">
+                            <span class="amount">$0</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <ul class="features-list">
+                            <li>✓ 3 tracks per month</li>
+                            <li>✓ Basic AI tools</li>
+                            <li>✓ Community support</li>
+                            <li>✗ Advanced AI features</li>
+                            <li>✗ Desktop app</li>
+                        </ul>
+                        <button class="btn btn-outline" id="freeSignupBtn">Start Free</button>
+                    </div>
+                    <div class="pricing-card featured">
+                        <h3>Pro</h3>
+                        <div class="price">
+                            <span class="amount">$19</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <ul class="features-list">
+                            <li>✓ Unlimited tracks</li>
+                            <li>✓ All AI features</li>
+                            <li>✓ Desktop app</li>
+                            <li>✓ Priority support</li>
+                            <li>✓ Commercial license</li>
+                        </ul>
+                        <button class="btn btn-primary" id="proSignupBtn">Start Pro Trial</button>
+                    </div>
+                    <div class="pricing-card">
+                        <h3>Studio</h3>
+                        <div class="price">
+                            <span class="amount">$49</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <ul class="features-list">
+                            <li>✓ Everything in Pro</li>
+                            <li>✓ Team collaboration</li>
+                            <li>✓ Advanced analytics</li>
+                            <li>✓ Custom AI training</li>
+                            <li>✓ White-label options</li>
+                        </ul>
+                        <button class="btn btn-outline" id="studioSignupBtn">Start Studio Trial</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <!-- Download Modal -->
-    <div id="download-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Download Desktop App</h2>
-            <p>Get the full Ghxst Music Producer experience with our desktop application.</p>
-            <div class="download-options">
-                <button class="download-option" data-platform="windows">
-                    <i class="fab fa-windows"></i>
-                    <span>Windows</span>
-                    <small>Compatible with Windows 10/11</small>
-                </button>
-                <button class="download-option" data-platform="mac">
-                    <i class="fab fa-apple"></i>
-                    <span>macOS</span>
-                    <small>Compatible with macOS 10.15+</small>
-                </button>
-                <button class="download-option" data-platform="linux">
-                    <i class="fab fa-linux"></i>
-                    <span>Linux</span>
-                    <small>AppImage format</small>
-                </button>
+        <!-- Download Section -->
+        <section id="download" class="download">
+            <div class="container">
+                <h2>Download Desktop App</h2>
+                <p>Get the full Ghxst experience with our native desktop application.</p>
+                <div class="download-buttons">
+                    <button class="btn btn-primary btn-large" id="downloadWindowsBtn">
+                        <span>📱</span>
+                        Download for Windows
+                    </button>
+                    <button class="btn btn-primary btn-large" id="downloadMacBtn">
+                        <span>🍎</span>
+                        Download for macOS
+                    </button>
+                    <button class="btn btn-primary btn-large" id="downloadLinuxBtn">
+                        <span>🐧</span>
+                        Download for Linux
+                    </button>
+                </div>
+                <div class="download-info">
+                    <p>System Requirements: 4GB RAM, 2GB storage, 64-bit OS</p>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h4>GHXST</h4>
+                        <p>Professional AI music production for the modern creator.</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Product</h4>
+                        <a href="#features">Features</a>
+                        <a href="#pricing">Pricing</a>
+                        <a href="#download">Download</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Support</h4>
+                        <a href="#">Help Center</a>
+                        <a href="#">Contact</a>
+                        <a href="#">Community</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Legal</h4>
+                        <a href="#">Privacy</a>
+                        <a href="#">Terms</a>
+                        <a href="#">DMCA</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Ghxst Music Producer. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
     </div>
 
-    <script src="app.js"></script>
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
 </body>
 </html>
