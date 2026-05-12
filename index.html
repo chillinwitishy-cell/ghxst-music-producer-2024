@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghxst Music Producer 2024 - Professional AI Music Production</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <div class="logo">
+                    <i class="fas fa-music"></i>
+                    <span class="logo-text">Ghxst Music Producer 2024</span>
+                </div>
+                <div class="project-info">
+                    <span class="project-name">Untitled Project</span>
+                    <span class="bpm">120 BPM</span>
+                </div>
+            </div>
+            <div class="header-center">
+                <div class="transport-controls">
+                    <button id="play-btn" class="transport-btn"><i class="fas fa-play"></i></button>
+                    <button id="pause-btn" class="transport-btn"><i class="fas fa-pause"></i></button>
+                    <button id="stop-btn" class="transport-btn"><i class="fas fa-stop"></i></button>
+                    <button id="record-btn" class="transport-btn record"><i class="fas fa-circle"></i></button>
+                </div>
+                <div class="time-display">
+                    <span id="current-time">00:00:00</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="subscription-btn" id="subscription-btn">
+                    <i class="fas fa-crown"></i> Upgrade Pro
+                </button>
+                <button class="download-btn" id="download-btn">
+                    <i class="fas fa-download"></i> Desktop App
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3>AI Instruments</h3>
+                    <div class="instrument-list">
+                        <div class="instrument-item" data-instrument="piano">
+                            <i class="fas fa-piano"></i>
+                            <span>AI Piano</span>
+                        </div>
+                        <div class="instrument-item" data-instrument="drums">
+                            <i class="fas fa-drum"></i>
+                            <span>AI Drums</span>
+                        </div>
+                        <div class="instrument-item" data-instrument="synth">
+                            <i class="fas fa-wave-square"></i>
+                            <span>AI Synth</span>
+                        </div>
+                        <div class="instrument-item" data-instrument="guitar">
+                            <i class="fas fa-guitar"></i>
+                            <span>AI Guitar</span>
+                        </div>
+                        <div class="instrument-item" data-instrument="bass">
+                            <i class="fas fa-music"></i>
+                            <span>AI Bass</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>AI Effects</h3>
+                    <div class="effects-list">
+                        <div class="effect-item">
+                            <i class="fas fa-sliders-h"></i>
+                            <span>AI Reverb</span>
+                        </div>
+                        <div class="effect-item">
+                            <i class="fas fa-adjust"></i>
+                            <span>AI Compressor</span>
+                        </div>
+                        <div class="effect-item">
+                            <i class="fas fa-equalizer"></i>
+                            <span>AI EQ</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Workspace -->
+            <div class="workspace">
+                <!-- Track Area -->
+                <div class="track-area">
+                    <div class="track-header">
+                        <h2>Tracks</h2>
+                        <button class="add-track-btn" id="add-track-btn">
+                            <i class="fas fa-plus"></i> Add Track
+                        </button>
+                    </div>
+                    
+                    <div class="tracks-container" id="tracks-container">
+                        <!-- Tracks will be added dynamically -->
+                        <div class="track" data-track="1">
+                            <div class="track-controls">
+                                <div class="track-name">Track 1</div>
+                                <div class="track-buttons">
+                                    <button class="track-btn mute"><i class="fas fa-volume-mute"></i></button>
+                                    <button class="track-btn solo"><i class="fas fa-headphones"></i></button>
+                                    <button class="track-btn record"><i class="fas fa-circle"></i></button>
+                                </div>
+                                <div class="track-level">
+                                    <input type="range" class="level-slider" min="0" max="100" value="75">
+                                </div>
+                            </div>
+                            <div class="track-timeline">
+                                <div class="track-content">Drop audio files or generate with AI</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Generation Panel -->
+                <div class="ai-panel">
+                    <h3>AI Music Generation</h3>
+                    <div class="ai-controls">
+                        <div class="ai-input-group">
+                            <label>Style:</label>
+                            <select id="music-style">
+                                <option value="electronic">Electronic</option>
+                                <option value="hiphop">Hip Hop</option>
+                                <option value="rock">Rock</option>
+                                <option value="jazz">Jazz</option>
+                                <option value="classical">Classical</option>
+                                <option value="ambient">Ambient</option>
+                            </select>
+                        </div>
+                        <div class="ai-input-group">
+                            <label>Mood:</label>
+                            <select id="music-mood">
+                                <option value="energetic">Energetic</option>
+                                <option value="chill">Chill</option>
+                                <option value="dramatic">Dramatic</option>
+                                <option value="happy">Happy</option>
+                                <option value="melancholic">Melancholic</option>
+                            </select>
+                        </div>
+                        <div class="ai-input-group">
+                            <label>Length:</label>
+                            <select id="music-length">
+                                <option value="30">30 seconds</option>
+                                <option value="60">1 minute</option>
+                                <option value="120">2 minutes</option>
+                                <option value="240">4 minutes</option>
+                            </select>
+                        </div>
+                        <button class="generate-btn" id="generate-btn">
+                            <i class="fas fa-magic"></i> Generate AI Music
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Subscription Modal -->
+    <div id="subscription-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Upgrade to Ghxst Pro</h2>
+            <div class="pricing-plans">
+                <div class="plan">
+                    <h3>Monthly Pro</h3>
+                    <div class="price">$29.99/month</div>
+                    <ul>
+                        <li>Unlimited AI generations</li>
+                        <li>Premium instrument library</li>
+                        <li>Advanced AI effects</li>
+                        <li>Export high-quality audio</li>
+                        <li>Cloud storage</li>
+                    </ul>
+                    <button class="subscribe-btn" data-plan="monthly">Subscribe Now</button>
+                </div>
+                <div class="plan featured">
+                    <h3>Annual Pro</h3>
+                    <div class="price">$299.99/year</div>
+                    <div class="savings">Save 17%</div>
+                    <ul>
+                        <li>Everything in Monthly</li>
+                        <li>Exclusive AI models</li>
+                        <li>Priority support</li>
+                        <li>Desktop app included</li>
+                        <li>Commercial license</li>
+                    </ul>
+                    <button class="subscribe-btn" data-plan="annual">Subscribe Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Download Modal -->
+    <div id="download-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Download Desktop App</h2>
+            <p>Get the full Ghxst Music Producer experience with our desktop application.</p>
+            <div class="download-options">
+                <button class="download-option" data-platform="windows">
+                    <i class="fab fa-windows"></i>
+                    <span>Windows</span>
+                    <small>Compatible with Windows 10/11</small>
+                </button>
+                <button class="download-option" data-platform="mac">
+                    <i class="fab fa-apple"></i>
+                    <span>macOS</span>
+                    <small>Compatible with macOS 10.15+</small>
+                </button>
+                <button class="download-option" data-platform="linux">
+                    <i class="fab fa-linux"></i>
+                    <span>Linux</span>
+                    <small>AppImage format</small>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
